@@ -7,7 +7,7 @@ An open-source starter stack for applications in the Zolta ecosystem.
 - `apps/web` — a Nuxt 4 client with reusable SaaS marketing and authenticated dashboard foundations.
 - `apps/identity` — the public [Zolta Identity](https://github.com/zoltasoft/zolta-identity) repository, pinned as a Git submodule. It owns authentication, users, projects, memberships, roles, and permissions.
 
-The web application deliberately contains no product API, billing provider, job tracker, document studio, demo data, or product-specific domain model. Add those as independent applications or feature layers when a real product requires them.
+The web application provides shared foundations only. Add application-specific capabilities as independent applications or feature layers when your product requires them.
 
 ## Quick start
 
