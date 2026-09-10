@@ -24,7 +24,7 @@ cp .env.example .env
 pnpm install
 ```
 
-Configure the Identity client created for your application in `apps/web/.env`, then run Identity and the web client in separate terminals. See [apps/identity/README.md](apps/identity/README.md) for Identity setup.
+Configure the Identity client created for your application in `apps/web/.env`, then run Identity and the web client in separate terminals. The Identity component README included in your checked-out submodule covers its setup.
 
 ## Licensing
 
