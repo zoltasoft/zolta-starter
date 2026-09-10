@@ -1,0 +1,10 @@
+{
+	"name": "@package/nuxt-content",
+	"private": true,
+	"type": "module",
+	"scripts": {},
+	"dependencies": {
+		"@nuxt/content": "^3.15.2"
+	},
+	"packageManager": "pnpm@10.30.3"
+}

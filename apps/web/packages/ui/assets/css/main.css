@@ -1,0 +1,57 @@
+@import "tailwindcss";
+@import "@nuxt/ui";
+
+@source "../../../content/**/*";
+
+@theme static {
+	--font-sans: "Public Sans", sans-serif;
+
+	--color-brand-50: #effcf8;
+	--color-brand-100: #d8f7ed;
+	--color-brand-200: #b2eddb;
+	--color-brand-300: #7dd9bd;
+	--color-brand-400: #42b99d;
+	--color-brand-500: #16937d;
+	--color-brand-600: #0b7867;
+	--color-brand-700: #096052;
+	--color-brand-800: #0b4c42;
+	--color-brand-900: #0b4038;
+	--color-brand-950: #052a25;
+
+	--color-green-50: #effdf5;
+	--color-green-100: #d9fbe8;
+	--color-green-200: #b3f5d1;
+	--color-green-300: #75edae;
+	--color-green-400: #00dc82;
+	--color-green-500: #00c16a;
+	--color-green-600: #00a155;
+	--color-green-700: #007f45;
+	--color-green-800: #016538;
+	--color-green-900: #0a5331;
+	--color-green-950: #052e16;
+}
+
+:root {
+	--ui-bg: #f7f8f6;
+	--ui-bg-muted: #eef3ef;
+	--ui-bg-elevated: #ffffff;
+	--ui-bg-accented: var(--ui-color-neutral-100);
+}
+
+html,
+body,
+#__nuxt {
+	min-width: 0;
+	max-width: 100%;
+}
+
+body {
+	overflow-x: clip;
+}
+
+.dark {
+	--ui-bg: var(--ui-color-neutral-950);
+	--ui-bg-muted: var(--ui-color-neutral-900);
+	--ui-bg-elevated: var(--ui-color-neutral-900);
+	--ui-bg-accented: var(--ui-color-neutral-800);
+}

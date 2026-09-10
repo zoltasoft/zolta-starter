@@ -1,0 +1,28 @@
+# Local configuration and secrets
+.env
+.env.*
+!.env.example
+
+# JavaScript and Nuxt output
+node_modules/
+.nuxt/
+.output/
+.data/
+.nitro/
+.cache/
+dist/
+coverage/
+test-results/
+playwright-report/
+
+# PHP, Composer, and framework runtime files
+vendor/
+storage/logs/
+storage/framework/
+bootstrap/cache/*.php
+*.sqlite
+
+# Editor and OS files
+.DS_Store
+.idea/
+.vscode/

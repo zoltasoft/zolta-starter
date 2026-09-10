@@ -1,0 +1,58 @@
+
+
+# Nuxt dev/build outputs
+.output
+.data
+.nuxt
+.nitro
+.cache
+dist
+bk
+
+# Node dependencies
+node_modules
+
+# Logs
+logs
+*.log
+
+# Test output
+test-results
+playwright-report
+
+# Misc
+.DS_Store
+.fleet
+.idea
+.eslintcache
+
+# Local env files
+.env
+.env.*
+!.env.example
+
+
+local
+
+# Database
+docker-compose.mysql.yml
+sqlite.db
+
+# Local shell/session artifacts
+/0
+/.bash_profile
+/.bashrc
+/.gitconfig
+/.profile
+/.ripgreprc
+/.zprofile
+/.zshrc
+
+/.pnpm-store/
+
+# Local source context from the prior product; not part of this starter.
+.agents/
+
+# Local migration context; intentionally not shipped by the starter.
+.agents/
+.skill-staging/

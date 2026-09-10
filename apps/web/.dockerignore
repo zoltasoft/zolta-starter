@@ -1,0 +1,14 @@
+.git
+.github
+.nuxt
+.output
+.data
+.cache
+node_modules
+**/node_modules
+**/vendor
+**/.env
+**/.env.*
+test-results
+playwright-report
+docs

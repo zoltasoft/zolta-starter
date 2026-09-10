@@ -1,0 +1,7 @@
+{
+	"name": "@layer/landing",
+	"private": true,
+	"type": "module",
+	"scripts": {},
+  "packageManager": "pnpm@10.30.3"
+}
