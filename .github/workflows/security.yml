@@ -1,0 +1,63 @@
+name: Security
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  schedule:
+    - cron: '41 4 * * 1'
+
+permissions:
+  contents: read
+
+defaults:
+  run:
+    working-directory: apps/web
+
+jobs:
+  tracked-secret-scan:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: .
+    steps:
+      - uses: actions/checkout@v7
+        with:
+          fetch-depth: 0
+      - name: Scan tracked files for high-confidence secret patterns
+        shell: bash
+        run: |
+          set -euo pipefail
+          matches="$(mktemp)"
+          trap 'rm -f "$matches"' EXIT
+          if git grep -I -l -E '(AKIA[0-9A-Z]{16}|-----BEGIN [A-Z ]*PRIVATE KEY-----|github_pat_[A-Za-z0-9_]{20,}|gh[pousr]_[A-Za-z0-9_]{20,}|xox[baprs]-[A-Za-z0-9-]{20,})' -- . ':(exclude)*.lock' >"$matches"; then
+            echo "High-confidence secret patterns found in $(wc -l <"$matches") tracked file(s)."
+            exit 1
+          fi
+
+  dependency-audit:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+      - uses: pnpm/action-setup@v6
+        with:
+          version: 11.21.0
+      - uses: actions/setup-node@v7
+        with:
+          node-version: 24.11.0
+          cache: pnpm
+          cache-dependency-path: apps/web/pnpm-lock.yaml
+      - run: pnpm install --frozen-lockfile
+      - name: Generate production dependency audit report
+        run: |
+          set +e
+          pnpm audit --prod --json > audit-report.json
+          audit_status=$?
+          echo "pnpm audit exit status: $audit_status"
+          exit 0
+      - uses: actions/upload-artifact@v6
+        if: always()
+        with:
+          name: zolta-starter-dependency-audit-${{ github.sha }}
+          path: apps/web/audit-report.json
+          retention-days: 14
