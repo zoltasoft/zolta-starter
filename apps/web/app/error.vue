@@ -21,15 +21,13 @@ useHead({
 })
 
 useSeoMeta({
-  title: () => `${title.value} · Zolta Starter`,
+  title: () => `${title.value} · Zoltasoft Starter`,
   description
 })
 </script>
 
 <template>
   <UApp>
-    <AppHeader />
-
     <main class="min-h-[calc(100vh-4rem)] flex items-center justify-center px-6 py-16">
       <UPageCard
         variant="subtle"
@@ -51,7 +49,7 @@ useSeoMeta({
           <UButton
             icon="i-lucide-house"
             :label="t('error.home')"
-            :to="localePath('/saas')"
+            :to="localePath('/')"
           />
         </div>
       </UPageCard>

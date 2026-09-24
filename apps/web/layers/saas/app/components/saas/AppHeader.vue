@@ -18,7 +18,9 @@ const { session, login } = useStarterAuthenticationState()
 //   @click="login(route.fullPath)"
 // />
 
-const dashboardPath = computed(() => localePath('/saas/dashboard'))
+const dashboardPath = computed(() => localePath('/dashboard'))
+const loginUrl = computed(() => session.authorize(dashboardPath.value))
+const signupUrl = computed(() => session.authorize(dashboardPath.value, 'register'))
 const items = computed<NavigationMenuItem[]>(() => [
   {
     label: copy.value.navigation.product,
@@ -77,10 +79,9 @@ const items = computed<NavigationMenuItem[]>(() => [
         />
         <UButton
           :label="copy.navigation.start"
-          :external="true"
+          :href="signupUrl"
           trailing-icon="i-lucide-arrow-right"
           class="hidden sm:inline-flex"
-          @click="login(undefined, 'register')"
         />
       </template>
     </template>
@@ -103,17 +104,15 @@ const items = computed<NavigationMenuItem[]>(() => [
       >
         <UButton
           :label="copy.navigation.login"
-          :external="true"
+          :href="loginUrl"
           color="neutral"
           variant="outline"
           block
-          @click="login()"
         />
         <UButton
           :label="copy.navigation.start"
-          :external="true"
+          :href="signupUrl"
           block
-          @click="login(undefined, 'register')"
         />
       </div>
     </template>

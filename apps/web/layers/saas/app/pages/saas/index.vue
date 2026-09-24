@@ -26,14 +26,14 @@ function localizeTarget(target: string) {
 
   if (path === '/saas/auth/login') {
     return {
-      to: identity.authorize(localePath('/saas/dashboard')),
+      to: identity.authorize(localePath('/dashboard')),
       external: true
     }
   }
 
   if (path === '/saas/auth/signup') {
     return {
-      to: identity.authorize(localePath('/saas/dashboard'), 'register'),
+      to: identity.authorize(localePath('/dashboard'), 'register'),
       external: true
     }
   }
@@ -70,10 +70,6 @@ useSeoMeta({
       :description="page.description"
       :links="heroLinks"
     >
-      <template #top>
-        <SaasHeroBackground />
-      </template>
-
       <template #title>
         <MDC
           :value="page.title"
@@ -87,16 +83,14 @@ useSeoMeta({
     </UContainer>
 
     <UPageSection
-      v-for="(section, index) in page.sections"
-      :key="index"
+      v-for="section in page.sections"
+      :key="section.title"
       :title="section.title"
       :description="section.description"
       :orientation="section.orientation"
       :reverse="section.reverse"
       :features="section.features"
-    >
-      <SaasProductPreview :variant="index === 0 ? 'workspace' : 'automation'" />
-    </UPageSection>
+    />
 
     <UPageSection
       id="trust"
@@ -148,20 +142,6 @@ useSeoMeta({
           </p>
         </details>
       </div>
-    </UPageSection>
-
-    <UPageSection
-      :title="page.features.title"
-      :description="page.features.description"
-    >
-      <UPageGrid>
-        <UPageCard
-          v-for="(item, index) in page.features.items"
-          :key="index"
-          v-bind="item"
-          spotlight
-        />
-      </UPageGrid>
     </UPageSection>
 
     <UPageSection

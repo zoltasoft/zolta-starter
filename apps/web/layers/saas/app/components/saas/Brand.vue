@@ -8,15 +8,15 @@ withDefaults(defineProps<{
 
 <template>
   <span class="inline-flex items-center gap-2 text-highlighted">
-    <span class="grid size-8 shrink-0 place-items-center rounded-lg bg-primary text-white shadow-sm">
-      <UIcon
-        name="i-lucide-orbit"
-        class="size-4"
-      />
-    </span>
+    <img
+      src="/branding/zoltasoft-saas.png"
+      alt=""
+      aria-hidden="true"
+      class="size-8 shrink-0 object-contain"
+    >
     <span
       v-if="!collapsed"
       class="text-sm font-semibold tracking-tight"
-    >Zolta Starter</span>
+    >Zoltasoft SaaS</span>
   </span>
 </template>

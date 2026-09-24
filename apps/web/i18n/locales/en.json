@@ -1,4 +1,20 @@
 {
+  "home": {
+    "eyebrow": "Zoltasoft ecosystem",
+    "title": "A neutral foundation for your applications.",
+    "description": "Zoltasoft Starter provides Nuxt, BFF, Laravel API, and Identity foundations for building your product.",
+    "getStarted": "Get started",
+    "documentation": "Read the documentation",
+    "saasTitle": "Zoltasoft SaaS",
+    "saasDescription": "Explore the violet-themed SaaS product experience, features, and authenticated dashboard.",
+    "saasAction": "Browse product",
+    "identityTitle": "Zoltasoft Identity",
+    "identityDescription": "Explore authentication, accounts, roles, and permissions through the Zoltasoft Identity project.",
+    "identityAction": "Open Identity",
+    "projectsTitle": "Zoltasoft Tasks",
+    "projectsDescription": "A task management demo connected to Identity and backed by a Laravel API.",
+    "projectsAction": "Open Tasks"
+  },
   "error": {
     "notFoundTitle": "Page not found",
     "notFoundDescription": "The page may have moved or the link is unavailable.",
@@ -15,6 +31,97 @@
     "light": "Light",
     "dark": "Dark",
     "logout": "Log out",
-    "locales": { "en": "English", "fr": "French" }
+    "locales": {
+      "en": "English",
+      "fr": "French"
+    }
+  },
+  "dashboard": {
+    "brand": "Zoltasoft SaaS",
+    "overview": "Overview",
+    "settings": "Settings",
+    "product": "Product site",
+    "support": "Help and support",
+    "primaryNavigation": "Zoltasoft SaaS dashboard navigation",
+    "secondaryNavigation": "Zoltasoft SaaS resources navigation",
+    "search": "Search Zoltasoft SaaS",
+    "welcomeEyebrow": "Zoltasoft SaaS workspace",
+    "welcome": "Welcome, {name}",
+    "description": "Your SaaS foundation is ready. Replace this welcome screen with the modules for your next idea.",
+    "demoNote": "This intentionally minimal dashboard demonstrates the authenticated area, responsive sidebar, user menu, translations, themes, and account lifecycle without inventing fake product data.",
+    "settingsTitle": "Account settings",
+    "settingsDescription": "View your connected account and manage your profile and security through Identity.",
+    "account": "Identity account",
+    "accountDescription": "Identity securely manages your profile, sign-in credentials, account data, and sensitive actions.",
+    "manageAccount": "Manage account",
+    "temporaryDemo": "Temporary demo",
+    "accountManagementUnavailableTitle": "Account management is unavailable",
+    "accountManagementUnavailableDescription": "This temporary demo account expires automatically. Its identity, credentials, sessions, and account data cannot be changed."
+  },
+  "projects": {
+    "brand": "Zoltasoft Tasks",
+    "eyebrow": "Task management demo",
+    "title": "Zoltasoft Tasks",
+    "description": "A focused task management demo showing Identity, Nuxt BFF, Laravel API, and task workflows in one workspace.",
+    "start": "Start using Tasks",
+    "login": "Log in",
+    "create": "Create project",
+    "createTitle": "Create a project",
+    "name": "Name",
+    "key": "Key",
+    "descriptionLabel": "Description",
+    "loading": "Loading projects…",
+    "loadingTasks": "Loading tasks…",
+    "empty": "Create your first project to get started.",
+    "noMatchingTasks": "No tasks match the current filters.",
+    "searchTasks": "Search tasks by title",
+    "filterStatus": "Filter by status",
+    "filterPriority": "Filter by priority",
+    "taskDescriptionPlaceholder": "Add a task description",
+    "taskCount": "{count} tasks",
+    "tasks": "tasks",
+    "taskPlaceholder": "What needs to be done?",
+    "addTask": "Add task",
+    "nav": {
+      "overview": "Tasks",
+      "tasks": "Tasks",
+      "logout": "Log out",
+      "product": "Tasks product",
+      "documentation": "Documentation",
+      "primaryNavigation": "Tasks navigation",
+      "secondaryNavigation": "Task resources",
+      "search": "Search Tasks"
+    },
+    "features": {
+      "title": "Everything needed to manage tasks",
+      "description": "Create task workspaces, organize priorities, and keep activity visible from one focused dashboard.",
+      "projects": "Task workspaces backed by Laravel",
+      "tasks": "Tasks with status and priority",
+      "activity": "Authenticated activity history"
+    },
+    "status": {
+      "all": "All statuses",
+      "todo": "To do",
+      "in_progress": "In progress",
+      "done": "Done"
+    },
+    "priority": {
+      "all": "All priorities",
+      "low": "Low",
+      "medium": "Medium",
+      "high": "High"
+    },
+    "settings": {
+      "title": "Account settings",
+      "description": "View your connected account and manage your profile and security through Identity.",
+      "account": "Identity account",
+      "accountDescription": "Identity securely manages your profile, sign-in credentials, account data, and sensitive actions.",
+      "manageAccount": "Manage account",
+      "temporaryDemo": "Temporary demo",
+      "accountManagementUnavailableTitle": "Account management is unavailable",
+      "accountManagementUnavailableDescription": "This temporary demo account expires automatically. Its identity, credentials, sessions, and account data cannot be changed."
+    },
+    "logout": "Log out",
+    "dashboard": "Dashboard"
   }
 }

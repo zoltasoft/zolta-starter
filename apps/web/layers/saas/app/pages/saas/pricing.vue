@@ -5,7 +5,7 @@ const copy = useSaasTemplatePresentation()
 const localePath = useLocalePath()
 const session = useStarterIdentitySession()
 const yearly = ref(true)
-const signupTo = computed(() => session.authorize(localePath('/saas/dashboard'), 'register'))
+const signupTo = computed(() => session.authorize(localePath('/dashboard'), 'register'))
 
 useSeoMeta({
   title: () => `${copy.value.navigation.pricing} · ${copy.value.brand}`,

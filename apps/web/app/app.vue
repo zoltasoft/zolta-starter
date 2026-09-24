@@ -2,8 +2,8 @@
 const colorMode = useColorMode()
 const { locale } = useI18n()
 const color = computed(() => colorMode.value === 'dark' ? '#171717' : '#ffffff')
-const title = 'Zolta Starter'
-const description = 'An open-source SaaS and dashboard starter for the Zolta ecosystem.'
+const title = 'Zoltasoft Starter'
+const description = 'A product-neutral Nuxt foundation for the Zoltasoft ecosystem.'
 
 useHead({
   meta: [
@@ -14,7 +14,17 @@ useHead({
   htmlAttrs: { lang: locale }
 })
 
-useSeoMeta({ title, description, ogTitle: title, ogDescription: description, twitterCard: 'summary' })
+useSeoMeta({
+  title,
+  description,
+  applicationName: title,
+  ogTitle: title,
+  ogDescription: description,
+  ogSiteName: title,
+  twitterCard: 'summary',
+  twitterTitle: title,
+  twitterDescription: description
+})
 </script>
 
 <template>

@@ -1,0 +1,27 @@
+/*
+ * Projects is a product-scoped theme. Keep the shared starter defaults in
+ * packages/ui/assets/css/main.css and override semantic Nuxt UI tokens only
+ * inside the projects layout wrapper.
+ */
+.projects-theme {
+	--ui-color-primary-50: #eef2ff;
+	--ui-color-primary-100: #e0e7ff;
+	--ui-color-primary-200: #c7d2fe;
+	--ui-color-primary-300: #a5b4fc;
+	--ui-color-primary-400: #818cf8;
+	--ui-color-primary-500: #6366f1;
+	--ui-color-primary-600: #4f46e5;
+	--ui-color-primary-700: #4338ca;
+	--ui-color-primary-800: #3730a3;
+	--ui-color-primary-900: #312e81;
+	--ui-color-primary-950: #1e1b4b;
+	--ui-primary: var(--ui-color-primary-600);
+}
+
+.dark .projects-theme {
+	--ui-bg: var(--ui-color-neutral-950);
+	--ui-bg-muted: var(--ui-color-neutral-900);
+	--ui-bg-elevated: var(--ui-color-neutral-900);
+	--ui-bg-accented: var(--ui-color-neutral-800);
+	--ui-primary: var(--ui-color-primary-400);
+}
