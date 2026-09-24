@@ -26,3 +26,9 @@ bootstrap/cache/*.php
 .DS_Store
 .idea/
 .vscode/
+.agents/
+.ai/
+.claude/
+.mcp.json
+.zolta/
+AGENTS.md
