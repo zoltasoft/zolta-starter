@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="saas-theme min-h-screen">
     <SaasAppHeader />
 
     <UMain>

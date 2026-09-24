@@ -1,7 +1,7 @@
 title: Turn scattered work into <span class="text-primary">one clear system</span>
-description: Zolta Starter brings projects, approvals, automations, and team knowledge into one calm workspace—so everyone knows what is moving and what needs attention.
+description: Zoltasoft Starter brings projects, approvals, automations, and team knowledge into one calm workspace—so everyone knows what is moving and what needs attention.
 seo:
-  title: Zolta Starter — The operating system for focused teams
+  title: Zoltasoft Starter — The operating system for focused teams
   description: Organize team workflows, automate routine work, and understand progress in one flexible workspace.
 navigation: false
 
@@ -90,11 +90,11 @@ trust:
 
 faq:
   headline: Frequently asked questions
-  title: Everything you need to evaluate Zolta Starter
+  title: Everything you need to evaluate Zoltasoft Starter
   description: Clear answers about the fictional product and the reusable template demonstrated here.
   items:
-    - title: Is Zolta Starter a real commercial product?
-      description: Zolta Starter is a fictional product created to demonstrate a production-minded SaaS experience. The marketing, authentication, localization, dashboard shell, and account flows are functional template foundations.
+    - title: Is Zoltasoft Starter a real commercial product?
+      description: Zoltasoft Starter is a fictional product created to demonstrate a production-minded SaaS experience. The marketing, authentication, localization, dashboard shell, and account flows are functional template foundations.
     - title: Can I explore the authenticated experience?
       description: Yes. Generate a temporary demo account on the login page. Its private data is automatically scheduled for deletion when the demo session expires.
     - title: Does the template support light and dark themes?
@@ -107,7 +107,7 @@ faq:
 testimonials:
   headline: Template intent
   title: A credible product story without invented social proof
-  description: Zolta Starter demonstrates the sections and flows a complete SaaS needs while remaining transparent that the product is fictional.
+  description: Zoltasoft Starter demonstrates the sections and flows a complete SaaS needs while remaining transparent that the product is fictional.
   items: []
 
 cta:

@@ -1,7 +1,7 @@
 title: Transformez un travail dispersé en <span class="text-primary">un système clair</span>
-description: Zolta Starter réunit projets, validations, automatisations et connaissances dans un espace calme où chacun sait ce qui avance et ce qui demande son attention.
+description: Zoltasoft Starter réunit projets, validations, automatisations et connaissances dans un espace calme où chacun sait ce qui avance et ce qui demande son attention.
 seo:
-  title: Zolta Starter — Le système d’exploitation des équipes concentrées
+  title: Zoltasoft Starter — Le système d’exploitation des équipes concentrées
   description: Organisez les processus, automatisez le travail répétitif et comprenez la progression dans un espace flexible.
 navigation: false
 
@@ -90,11 +90,11 @@ trust:
 
 faq:
   headline: Questions fréquentes
-  title: Tout ce qu’il faut pour évaluer Zolta Starter
+  title: Tout ce qu’il faut pour évaluer Zoltasoft Starter
   description: Des réponses claires sur le produit fictif et sur le modèle réutilisable présenté ici.
   items:
-    - title: Zolta Starter est-il un vrai produit commercial ?
-      description: Zolta Starter est un produit fictif créé pour démontrer une expérience SaaS pensée pour la production. Le marketing, l’authentification, la traduction, le tableau de bord et les parcours de compte forment une base fonctionnelle.
+    - title: Zoltasoft Starter est-il un vrai produit commercial ?
+      description: Zoltasoft Starter est un produit fictif créé pour démontrer une expérience SaaS pensée pour la production. Le marketing, l’authentification, la traduction, le tableau de bord et les parcours de compte forment une base fonctionnelle.
     - title: Puis-je explorer l’espace authentifié ?
       description: Oui. Générez un compte temporaire depuis la connexion. Ses données privées sont automatiquement programmées pour suppression lorsque la session de démonstration expire.
     - title: Le modèle prend-il en charge les thèmes clair et sombre ?
@@ -107,7 +107,7 @@ faq:
 testimonials:
   headline: Intention du modèle
   title: Une histoire produit crédible, sans faux témoignages
-  description: Zolta Starter démontre les sections et parcours d’un SaaS complet tout en indiquant clairement que le produit est fictif.
+  description: Zoltasoft Starter démontre les sections et parcours d’un SaaS complet tout en indiquant clairement que le produit est fictif.
   items: []
 
 cta:

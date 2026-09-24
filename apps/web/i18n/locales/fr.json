@@ -1,4 +1,20 @@
 {
+  "home": {
+    "eyebrow": "Écosystème Zoltasoft",
+    "title": "Un socle neutre pour vos applications.",
+    "description": "Zoltasoft Starter fournit les fondations Nuxt, BFF, API Laravel et Identity pour construire votre produit.",
+    "getStarted": "Commencer",
+    "documentation": "Lire la documentation",
+    "saasTitle": "Zoltasoft SaaS",
+    "saasDescription": "Découvrez le produit SaaS violet, ses fonctionnalités et son tableau de bord authentifié.",
+    "saasAction": "Ouvrir le produit",
+    "identityTitle": "Zoltasoft Identity",
+    "identityDescription": "Découvrez l’authentification, les comptes, les rôles et les permissions du projet Zoltasoft Identity.",
+    "identityAction": "Ouvrir Identity",
+    "projectsTitle": "Zoltasoft Tasks",
+    "projectsDescription": "Une démo de gestion des tâches connectée à Identity et soutenue par une API Laravel.",
+    "projectsAction": "Ouvrir Tasks"
+  },
   "error": {
     "notFoundTitle": "Page introuvable",
     "notFoundDescription": "La page a peut-être été déplacée ou le lien est indisponible.",
@@ -15,6 +31,97 @@
     "light": "Clair",
     "dark": "Sombre",
     "logout": "Se déconnecter",
-    "locales": { "en": "Anglais", "fr": "Français" }
+    "locales": {
+      "en": "Anglais",
+      "fr": "Français"
+    }
+  },
+  "dashboard": {
+    "brand": "Zoltasoft SaaS",
+    "overview": "Vue d’ensemble",
+    "settings": "Paramètres",
+    "product": "Site du produit",
+    "support": "Aide et assistance",
+    "primaryNavigation": "Navigation du tableau de bord Zoltasoft SaaS",
+    "secondaryNavigation": "Navigation des ressources Zoltasoft SaaS",
+    "search": "Rechercher dans Zoltasoft SaaS",
+    "welcomeEyebrow": "Espace Zoltasoft SaaS",
+    "welcome": "Bienvenue, {name}",
+    "description": "Votre fondation SaaS est prête. Remplacez cet accueil par les modules nécessaires à votre prochaine idée.",
+    "demoNote": "Ce tableau de bord volontairement minimal démontre la zone authentifiée, la barre latérale responsive, le menu utilisateur, la traduction, les thèmes et le cycle de vie du compte sans inventer de fausses données produit.",
+    "settingsTitle": "Paramètres du compte",
+    "settingsDescription": "Consultez votre compte connecté et gérez votre profil et votre sécurité avec Identity.",
+    "account": "Compte Identity",
+    "accountDescription": "Identity gère de façon sécurisée votre profil, vos identifiants, vos données et les actions sensibles.",
+    "manageAccount": "Gérer le compte",
+    "temporaryDemo": "Démo temporaire",
+    "accountManagementUnavailableTitle": "La gestion du compte est indisponible",
+    "accountManagementUnavailableDescription": "Ce compte de démonstration temporaire expire automatiquement. Son identité, ses identifiants, ses sessions et ses données de compte ne peuvent pas être modifiés."
+  },
+  "projects": {
+    "brand": "Zoltasoft Tasks",
+    "eyebrow": "Démo de gestion des tâches",
+    "title": "Zoltasoft Tasks",
+    "description": "Une démo ciblée de gestion des tâches qui présente Identity, le BFF Nuxt, l’API Laravel et les workflows de tâches dans un même espace.",
+    "start": "Découvrir Tasks",
+    "login": "Se connecter",
+    "create": "Créer un projet",
+    "createTitle": "Créer un projet",
+    "name": "Nom",
+    "key": "Clé",
+    "descriptionLabel": "Description",
+    "loading": "Chargement des projets…",
+    "loadingTasks": "Chargement des tâches…",
+    "empty": "Créez votre premier projet pour commencer.",
+    "noMatchingTasks": "Aucune tâche ne correspond aux filtres actuels.",
+    "searchTasks": "Rechercher une tâche par titre",
+    "filterStatus": "Filtrer par statut",
+    "filterPriority": "Filtrer par priorité",
+    "taskDescriptionPlaceholder": "Ajouter une description à la tâche",
+    "taskCount": "{count} tâches",
+    "tasks": "tâches",
+    "taskPlaceholder": "Que faut-il faire ?",
+    "addTask": "Ajouter la tâche",
+    "nav": {
+      "overview": "Tâches",
+      "tasks": "Tâches",
+      "logout": "Se déconnecter",
+      "product": "Produit Tasks",
+      "documentation": "Documentation",
+      "primaryNavigation": "Navigation Tasks",
+      "secondaryNavigation": "Ressources Tasks",
+      "search": "Rechercher dans Tasks"
+    },
+    "features": {
+      "title": "Tout le nécessaire pour gérer vos tâches",
+      "description": "Créez des espaces de tâches, organisez les priorités et gardez l’activité visible depuis un tableau de bord ciblé.",
+      "projects": "Espaces de tâches gérés par Laravel",
+      "tasks": "Tâches avec statut et priorité",
+      "activity": "Historique authentifié"
+    },
+    "status": {
+      "all": "Tous les statuts",
+      "todo": "À faire",
+      "in_progress": "En cours",
+      "done": "Terminé"
+    },
+    "priority": {
+      "all": "Toutes les priorités",
+      "low": "Basse",
+      "medium": "Moyenne",
+      "high": "Haute"
+    },
+    "settings": {
+      "title": "Paramètres du compte",
+      "description": "Consultez votre compte connecté et gérez votre profil et votre sécurité avec Identity.",
+      "account": "Compte Identity",
+      "accountDescription": "Identity gère de façon sécurisée votre profil, vos identifiants, vos données et les actions sensibles.",
+      "manageAccount": "Gérer le compte",
+      "temporaryDemo": "Démo temporaire",
+      "accountManagementUnavailableTitle": "La gestion du compte est indisponible",
+      "accountManagementUnavailableDescription": "Ce compte de démonstration temporaire expire automatiquement. Son identité, ses identifiants, ses sessions et ses données de compte ne peuvent pas être modifiés."
+    },
+    "logout": "Se déconnecter",
+    "dashboard": "Tableau de bord"
   }
 }

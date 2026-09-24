@@ -1,11 +1,11 @@
 /**
- * Browser-facing session adapter for Zolta Starter's hosted Identity application.
+ * Browser-facing session adapter for Zoltasoft Starter's hosted Identity application.
  * Tokens remain encrypted in the server-side consumer session.
  */
 export function useStarterIdentitySession() {
   const { csrf, headerName } = useCsrf()
   const identity = useZoltaIdentity('starter', {
-    defaultRedirect: '/saas/dashboard',
+    defaultRedirect: '/dashboard',
     logoutHeaders: () => ({ [headerName]: csrf })
   })
 

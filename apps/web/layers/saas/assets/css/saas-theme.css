@@ -1,0 +1,22 @@
+.saas-theme {
+  --ui-color-primary-50: #f5f3ff;
+  --ui-color-primary-100: #ede9fe;
+  --ui-color-primary-200: #ddd6fe;
+  --ui-color-primary-300: #c4b5fd;
+  --ui-color-primary-400: #a78bfa;
+  --ui-color-primary-500: #8b5cf6;
+  --ui-color-primary-600: #7c3aed;
+  --ui-color-primary-700: #6d28d9;
+  --ui-color-primary-800: #5b21b6;
+  --ui-color-primary-900: #4c1d95;
+  --ui-color-primary-950: #2e1065;
+  --ui-primary: var(--ui-color-primary-600);
+}
+
+.dark .saas-theme {
+  --ui-bg: #100b1f;
+  --ui-bg-muted: #17102b;
+  --ui-bg-elevated: #21163b;
+  --ui-bg-accented: #2d1d4c;
+  --ui-primary: var(--ui-color-primary-400);
+}

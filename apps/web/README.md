@@ -1,15 +1,6 @@
-# Zolta Starter Web
+# Zoltasoft Starter Web
 
-A reusable Nuxt 4 application foundation for Zolta Identity. It ships with a neutral SaaS marketing surface, an authenticated dashboard shell, localization, theme controls, and hosted authentication integration.
-
-## What is included
-
-- A SaaS landing page, pricing, legal-page, and changelog patterns intended for replacement.
-- An authenticated dashboard foundation with responsive navigation and account controls.
-- Zolta Identity integration through `@zoltasoft/identity-consumer-nuxt`; browser tokens remain in the encrypted server-side session.
-- Shared UI, validation, caching, error, and authorization primitives for future feature layers.
-
-No business API, product domain, payment integration, demo accounts, portfolio content, or application-specific feature is included.
+`apps/web` is a product-neutral Nuxt 4 foundation for applications that use Zoltasoft Identity and a Nuxt BFF. It contains shared UI/i18n packages, authentication/session plumbing, validation, error handling, caching, and the Identity consumer integration. No product pages, feature layers, demo data, or business API client are enabled by default.
 
 ## Setup
 
@@ -19,11 +10,11 @@ pnpm install
 pnpm dev
 ```
 
-Create an Identity project and confidential client in `../identity`, then provide its API URL, hosted-auth URL, client ID, client secret, and callback URL in `.env`. The default callback is `http://localhost:3000/api/identity/starter/auth/callback`.
+Configure an Identity Project confidential client in `.env` when authenticated development is needed. The client secret remains server-side; browser code talks to Nuxt `/api` BFF routes.
 
-## Building features
+## Adding features
 
-Keep feature-specific UI, BFF endpoints, and shared types in a Nuxt layer. The browser should call a local `/api` BFF endpoint rather than calling product APIs directly. Keep authentication, project, user, membership, role, and permission concerns in Zolta Identity.
+Create an independent layer under `layers/<feature>` with `app`, `server`, and (when shared) `shared` directories. Keep cross-layer foundations in the root `app`, `server`, or `shared` directories. See the [client architecture docs](../../docs/client/index.md) and [Identity Project integration](../../docs/api/07-cross-cutting/identity-project-integration.md).
 
 ## Commands
 
@@ -34,6 +25,21 @@ pnpm build
 pnpm test
 ```
 
+## Container
+
+Build the Nuxt runtime from `apps/web`:
+
+```bash
+  docker build -f docker/nuxt/Dockerfile -t zoltasoft-starter-web .
+```
+
+The web image contains only the Nuxt server output. Laravel/API containers are defined and built from `apps/api`.
+
 ## License
 
 Apache-2.0. The complete license is at the repository root.
+
+
+## Tasks product example
+
+The `layers/projects` layer is a separate task-management demo demonstrating a hosted Identity application, Nuxt BFF routes, and a Laravel API for task workspaces. Open `/projects` from the Starter root page. Initialize its local Identity client and hosted application with the repository-level `./scripts/init-stack` command before signing in.

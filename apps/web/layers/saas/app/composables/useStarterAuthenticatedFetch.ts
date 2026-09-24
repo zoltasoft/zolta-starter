@@ -3,7 +3,7 @@ export function useStarterAuthenticatedFetch() {
   const localePath = useLocalePath()
 
   return useZoltaIdentityFetch('starter', {
-    defaultRedirect: localePath('/saas/dashboard'),
+    defaultRedirect: localePath('/dashboard'),
     logoutHeaders: () => ({ [headerName]: csrf })
   })
 }

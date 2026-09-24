@@ -1,6 +1,4 @@
 packages:
-  - layers/saas
-  - layers/dashboard
   - packages/i18n
   - packages/nuxt-content
   - packages/ui
@@ -12,3 +10,6 @@ allowBuilds:
   sharp: true
   unrs-resolver: true
   vue-demi: true
+
+patchedDependencies:
+  '@zoltasoft/identity-consumer-nuxt@0.1.0-beta.13': patches/@zoltasoft__identity-consumer-nuxt@0.1.0-beta.13.patch
