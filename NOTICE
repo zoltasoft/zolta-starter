@@ -1,10 +1,10 @@
 Zolta Starter
 Copyright 2026 Zoltasoft contributors
 
-This repository includes Zolta Identity as the `apps/identity` Git submodule.
-Zolta Identity is licensed under Apache License 2.0. Its complete NOTICE file,
-license text, and trademark policy are retained inside that submodule and apply
-to that component.
+This repository includes the Zolta Identity console and server as the
+`apps/identity-console` and `apps/identity-server` applications. They are
+licensed under Apache License 2.0 and are maintained, tested, and released
+from this repository; there is no Identity Git submodule.
 
 Third-party dependencies are not relicensed by this repository. Their license
 terms are available in their respective packages and source distributions.

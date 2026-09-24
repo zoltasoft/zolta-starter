@@ -61,3 +61,39 @@ jobs:
           name: zolta-starter-dependency-audit-${{ github.sha }}
           path: apps/web/audit-report.json
           retention-days: 14
+
+  identity-console-dependency-audit:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: apps/identity-console
+    env:
+      NUXT_SESSION_PASSWORD: ci-only-session-password-with-at-least-32-characters
+    steps:
+      - uses: actions/checkout@v7
+      - uses: pnpm/action-setup@v6
+        with:
+          package_json_file: apps/identity-console/package.json
+      - uses: actions/setup-node@v7
+        with:
+          node-version: 24.11.0
+          cache: pnpm
+          cache-dependency-path: apps/identity-console/pnpm-lock.yaml
+      - run: pnpm install --frozen-lockfile
+      - run: pnpm audit --prod
+
+  identity-server-dependency-audit:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: apps/identity-server
+    steps:
+      - uses: actions/checkout@v7
+      - uses: shivammathur/setup-php@v2
+        with:
+          php-version: '8.3'
+          extensions: mbstring, pdo_sqlite, sqlite3
+          coverage: none
+          tools: composer:v2
+      - run: composer install --prefer-dist --no-interaction --no-progress
+      - run: composer audit --locked

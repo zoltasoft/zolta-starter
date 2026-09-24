@@ -2,7 +2,7 @@
     "$schema": "https://getcomposer.org/schema.json",
     "name": "zolta/identity",
     "type": "project",
-    "description": "Standalone Laravel identity API for multi-project accounts, RBAC, confidential clients, and token introspection.",
+    "description": "Zolta Starter Laravel identity API for multi-project accounts, RBAC, confidential clients, and token introspection.",
     "keywords": [
         "laravel",
         "identity",
@@ -14,7 +14,7 @@
         "zolta"
     ],
     "license": "Apache-2.0",
-    "homepage": "https://github.com/zoltasoft/zolta-identity",
+    "homepage": "https://github.com/zoltasoft/zolta-starter",
     "authors": [
         {
             "name": "Redouane Taleb",
@@ -23,8 +23,8 @@
         }
     ],
     "support": {
-        "issues": "https://github.com/zoltasoft/zolta-identity/issues",
-        "source": "https://github.com/zoltasoft/zolta-identity"
+        "issues": "https://github.com/zoltasoft/zolta-starter/issues",
+        "source": "https://github.com/zoltasoft/zolta-starter"
     },
     "require": {
         "php": "^8.3",
