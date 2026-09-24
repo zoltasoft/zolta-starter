@@ -37,7 +37,6 @@ jobs:
 
   dependency-audit:
     runs-on: ubuntu-latest
-    continue-on-error: true
     steps:
       - uses: actions/checkout@v7
       - uses: pnpm/action-setup@v6
@@ -50,7 +49,12 @@ jobs:
           cache-dependency-path: apps/web/pnpm-lock.yaml
       - run: pnpm install --frozen-lockfile
       - name: Generate production dependency audit report
-        run: pnpm audit --prod --json > audit-report.json
+        run: |
+          set +e
+          pnpm audit --prod --json > audit-report.json
+          audit_status=$?
+          echo "pnpm audit exit status: $audit_status"
+          exit 0
       - uses: actions/upload-artifact@v6
         if: always()
         with:
