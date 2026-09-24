@@ -18,10 +18,10 @@ foreach (['starter', 'tasks'] as $projectKey) {
 }
 
 $opsEnv = $root . '/../local-dev-ops/local/.env';
-$identityRoot = $root . '/apps/identity';
+$identityConsole = $root . '/apps/identity-console';
 $identityServer = $root . '/apps/identity-server';
 $identityServerEnv = $identityServer . '/.env.starter';
-$identityConsoleEnv = $identityRoot . '/.env.starter';
+$identityConsoleEnv = $identityConsole . '/.env.starter';
 $logoAssetsRoot = $root . '/scripts/assets/identity';
 $apiEnv = $root . '/apps/api/.env';
 $webEnv = $root . '/apps/web/.env';

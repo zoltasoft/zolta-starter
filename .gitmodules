@@ -1,3 +1,0 @@
-[submodule "apps/identity"]
-	path = apps/identity
-	url = git@github.com:zoltasoft/zolta-identity.git

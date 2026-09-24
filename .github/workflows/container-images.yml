@@ -21,6 +21,15 @@ jobs:
       fail-fast: false
       matrix:
         include:
+          - image: identity-console
+            dockerfile: apps/identity-console/docker/identity-console/Dockerfile
+            context: apps/identity-console
+          - image: identity-server
+            dockerfile: apps/identity-server/docker/identity-server/Dockerfile
+            context: apps/identity-server
+          - image: identity-nginx
+            dockerfile: apps/identity-server/docker/identity-server/nginx.Dockerfile
+            context: apps/identity-server
           - image: zolta-starter-web
             dockerfile: apps/web/docker/nuxt/Dockerfile
             context: apps/web
