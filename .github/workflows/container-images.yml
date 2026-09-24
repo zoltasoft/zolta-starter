@@ -22,13 +22,13 @@ jobs:
       matrix:
         include:
           - image: zolta-starter-web
-            dockerfile: docker/nuxt/Dockerfile
+            dockerfile: apps/web/docker/nuxt/Dockerfile
             context: apps/web
           - image: zolta-starter-api
-            dockerfile: docker/laravel/Dockerfile
+            dockerfile: apps/api/docker/laravel/Dockerfile
             context: apps/api
           - image: zolta-starter-api-nginx
-            dockerfile: docker/laravel/nginx.Dockerfile
+            dockerfile: apps/api/docker/laravel/nginx.Dockerfile
             context: apps/api
     steps:
       - uses: actions/checkout@v7
