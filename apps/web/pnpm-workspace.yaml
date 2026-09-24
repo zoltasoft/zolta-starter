@@ -13,3 +13,10 @@ allowBuilds:
 
 patchedDependencies:
   '@zoltasoft/identity-consumer-nuxt@0.1.0-beta.13': patches/@zoltasoft__identity-consumer-nuxt@0.1.0-beta.13.patch
+
+overrides:
+  '@tiptap/core@>=3.7.0 <3.30.5': ^3.30.5
+  js-yaml@>=4.0.0 <4.3.2: ^4.3.2
+  sharp@<0.35.4: ^0.35.4
+  svgo@>=4.0.0 <4.1.0: ^4.1.0
+  undici@<6.28.0: ^6.28.0
