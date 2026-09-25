@@ -2,8 +2,8 @@
 definePageMeta({ layout: 'dashboard', middleware: ['dashboard-auth'] })
 
 const { t } = useI18n()
-const session = useIdentitySession()
-const identityAccount = useZoltaIdentity('starter')
+const session = useSaasIdentitySession()
+const identityAccount = useZoltaIdentity('saas')
 const isTemporaryAccount = computed(() => Boolean(session.user.value?.isTemporary))
 
 const user = computed(() => {

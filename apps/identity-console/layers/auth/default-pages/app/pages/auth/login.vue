@@ -12,6 +12,7 @@ definePageMeta({
 const route = useRoute()
 const config = useRuntimeConfig()
 const toast = useToast()
+const { t } = useI18n()
 const auth = useIdentityAuth()
 const mutateIdentity = useIdentityMutation()
 const hostedApplication = computed(() =>
@@ -24,8 +25,8 @@ const hosted = computed(() =>
   Boolean(hostedApplication.value && hostedState.value)
 )
 const loginSchema = z.object({
-  email: z.email('Enter a valid email address.'),
-  password: z.string().min(8, 'Enter your password.')
+  email: z.email(t('auth.forgotPassword.validation.invalidEmail')),
+  password: z.string(t('auth.login.validation.passwordRequired')).min(8, t('auth.login.validation.passwordMin'))
 })
 type LoginSchema = z.output<typeof loginSchema>
 const pending = ref(false)
@@ -76,16 +77,16 @@ const fields = computed(() => [
   {
     name: 'email',
     type: 'email' as const,
-    label: 'Email',
-    placeholder: 'you@example.com',
+    label: t('auth.login.fields.email.label'),
+    placeholder: t('auth.login.fields.email.placeholder'),
     required: true,
     autocomplete: 'email'
   },
   {
     name: 'password',
     type: 'password' as const,
-    label: 'Password',
-    placeholder: 'Enter your password',
+    label: t('auth.login.fields.password.label'),
+    placeholder: t('auth.login.fields.password.placeholder'),
     required: true,
     autocomplete: 'current-password'
   }
@@ -94,7 +95,7 @@ const providers = computed(() =>
   googleEnabled.value
     ? [
         {
-          label: 'Continue with Google',
+          label: t('auth.login.form.google'),
           icon: 'i-simple-icons-google',
           loading: googlePending.value,
           disabled: Boolean(demoContext.value),
@@ -104,8 +105,8 @@ const providers = computed(() =>
     : []
 )
 const demoButtonLabel = computed(() => {
-  if (demoReady.value) return 'Continue as demo'
-  return demoPending.value ? 'Preparing demo…' : 'Create instant demo account'
+  if (demoReady.value) return t('auth.login.form.demoContinue')
+  return demoPending.value ? t('auth.login.form.demoPreparing') : t('auth.login.form.demoCreate')
 })
 
 function destination(): string {
@@ -139,7 +140,7 @@ async function submit({ data }: FormSubmitEvent<LoginSchema>) {
     await navigateTo(destination())
   } catch (error) {
     toast.add({
-      title: 'Unable to sign in',
+      title: t('auth.login.toast.error.title'),
       description: identityLoginErrorMessage(error),
       color: 'error'
     })
@@ -173,10 +174,10 @@ async function provisionDemo() {
     demoReady.value = true
   } catch (error) {
     toast.add({
-      title: 'Unable to prepare the demo',
+      title: t('auth.login.demo.errorTitle'),
       description: identityAuthErrorMessage(
         error,
-        'We could not prepare the temporary demo account.'
+        t('auth.login.demo.errorDescription')
       ),
       color: 'error'
     })
@@ -211,10 +212,10 @@ async function continueWithGoogle() {
     await navigateTo(result.redirectUrl, { external: true })
   } catch (error) {
     toast.add({
-      title: 'Unable to continue with Google',
+      title: t('auth.login.toast.error.title'),
       description: identityAuthErrorMessage(
         error,
-        'We could not start Google sign-in.'
+        t('auth.login.toast.error.description')
       ),
       color: 'error'
     })
@@ -231,11 +232,11 @@ async function continueWithGoogle() {
       class="identity-auth-form-shell space-y-4"
     >
       <IdentityAuthFormHeader
-        title="Sign in"
-        description="We could not load this application's authentication settings."
+        :title="t('login')"
+        :description="t('auth.login.form.loadError')"
       />
       <p class="identity-auth-error">
-        Try refreshing the page or return to the application and start again.
+        {{ t('auth.login.form.loadRetry') }}
       </p>
     </div>
 
@@ -244,11 +245,11 @@ async function continueWithGoogle() {
       class="identity-auth-form-shell space-y-4"
     >
       <IdentityAuthFormHeader
-        title="Sign in"
-        description="Loading authentication settings…"
+        :title="t('login')"
+        :description="t('auth.login.form.loadingSettings')"
       />
       <div class="identity-auth-status">
-        Loading authentication…
+        {{ t('auth.login.form.loadingAuthentication') }}
       </div>
     </div>
 
@@ -260,26 +261,26 @@ async function continueWithGoogle() {
         :schema="loginSchema"
         :validate-on="['input']"
         :providers="providers"
-        title="Sign in"
-        description="Sign in to continue."
-        :submit="{ label: 'Sign in', loading: pending }"
+        :title="t('login')"
+        :description="t('auth.login.form.description')"
+        :submit="{ label: t('login'), loading: pending }"
         @submit="submit"
       >
         <template #header>
           <IdentityAuthFormHeader
-            title="Sign in"
+            :title="t('login')"
           >
             <p class="identity-auth-form-header-link">
               <template v-if="registrationEnabled">
-                New here? <NuxtLink
+                {{ t('auth.login.form.newHere') }} <NuxtLink
                   :to="{
                     ...identityAuthPagePath('register', route.params.pageSet, hosted ? { application: hostedApplication, state: hostedState } : {})
                   }"
                   class="text-primary font-medium"
-                >Create an account</NuxtLink><span>.</span>
+                >{{ t('auth.login.form.createAccount') }}</NuxtLink><span>.</span>
               </template>
               <template v-else>
-                Use your existing account to continue.
+                {{ t('auth.login.form.existingAccount') }}
               </template>
             </p>
           </IdentityAuthFormHeader>
@@ -291,7 +292,7 @@ async function continueWithGoogle() {
             }"
             class="text-primary font-medium"
             tabindex="-1"
-          >Forgot password?</NuxtLink>
+          >{{ t('auth.login.form.forgotPassword') }}</NuxtLink>
         </template>
         <template #footer>
           <div class="grid gap-3">
@@ -313,8 +314,8 @@ async function continueWithGoogle() {
         class="identity-auth-form-shell grid gap-3"
       >
         <IdentityAuthFormHeader
-          title="Try the demo"
-          description="Create a temporary account to explore this application."
+          :title="t('auth.demo.title')"
+          :description="t('auth.demo.description')"
         />
         <UButton
           block

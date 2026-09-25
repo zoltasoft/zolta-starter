@@ -192,7 +192,8 @@
       },
       "validation": {
         "invalidEmail": "Email invalide",
-        "passwordMin": "Doit contenir au moins 8 caracteres"
+        "passwordRequired": "Le mot de passe est requis",
+        "passwordMin": "Doit contenir au moins 8 caractères"
       },
       "toast": {
         "success": {
@@ -207,10 +208,22 @@
       },
       "form": {
         "title": "Bon retour",
+        "description": "Connectez-vous pour continuer.",
         "submit": "Connexion",
         "noAccount": "Vous n'avez pas de compte ?",
+        "newHere": "Nouveau ici ?",
+        "existingAccount": "Utilisez votre compte existant pour continuer.",
         "signUp": "Inscription",
+        "createAccount": "Créer un compte",
         "forgotPassword": "Mot de passe oublie ?",
+        "google": "Continuer avec Google",
+        "demoContinue": "Continuer avec la démo",
+        "demoPreparing": "Préparation de la démo…",
+        "demoCreate": "Créer un compte démo instantané",
+        "loadError": "Impossible de charger les paramètres d'authentification de cette application.",
+        "loadRetry": "Actualisez la page ou retournez dans l'application pour recommencer.",
+        "loadingSettings": "Chargement des paramètres d'authentification…",
+        "loadingAuthentication": "Chargement de l'authentification…",
         "footerPrefix": "En vous connectant, vous acceptez nos",
         "terms": "Conditions d'utilisation",
         "and": "et notre",
@@ -249,7 +262,10 @@
       "validation": {
         "nameRequired": "Le nom est requis",
         "invalidEmail": "Email invalide",
-        "passwordMin": "Doit contenir au moins 8 caracteres",
+        "passwordRequired": "Le mot de passe est requis",
+        "passwordMin": "Doit contenir au moins 8 caractères",
+        "passwordConfirmationRequired": "Confirmez votre mot de passe.",
+        "passwordConfirmationMismatch": "La confirmation du mot de passe ne correspond pas.",
         "termsRequired": "Vous devez accepter les conditions et la politique de confidentialité"
       },
       "toast": {
@@ -264,9 +280,21 @@
       },
       "form": {
         "title": "Creer un compte",
+        "description": "Créez un compte pour cette application.",
         "submit": "Creer un compte",
+        "continue": "Continuer",
+        "secureTitle": "Sécurisez votre compte",
+        "secureDescription": "Choisissez un mot de passe pour terminer la création de votre compte.",
+        "backToProfile": "Retour au nom et à l'e-mail",
         "haveAccount": "Vous avez deja un compte ?",
         "login": "Connexion",
+        "google": "Continuer avec Google",
+        "termsReviewTitle": "Vérifier et accepter",
+        "termsReviewDescription": "Confirmez les conditions légales avant de créer votre compte.",
+        "termsPrompt": "Veuillez consulter les",
+        "termsLabel": "J'ai lu et j'accepte les conditions d'utilisation et la politique de confidentialité.",
+        "cancel": "Annuler",
+        "accept": "Accepter",
         "footerPrefix": "En vous inscrivant, vous acceptez nos",
         "terms": "Conditions d'utilisation",
         "and": "et notre",
@@ -290,7 +318,8 @@
       "form": {
         "title": "Mot de passe oublié ?",
         "description": "Entrez votre email. Si un compte existe, nous enverrons les instructions.",
-        "submit": "Envoyer le lien"
+        "submit": "Envoyer le lien",
+        "returnToLogin": "Retour à la connexion"
       },
       "sent": {
         "title": "Consultez votre messagerie",
@@ -308,6 +337,10 @@
         "description": "Réinitialisez votre mot de passe InterviewLike en toute sécurité"
       },
       "fields": {
+        "token": {
+          "label": "Jeton de réinitialisation",
+          "placeholder": "Collez le jeton reçu par e-mail"
+        },
         "password": {
           "label": "Nouveau mot de passe",
           "placeholder": "Entrez un nouveau mot de passe"
@@ -318,13 +351,19 @@
         }
       },
       "validation": {
+        "tokenRequired": "Entrez le jeton de réinitialisation.",
+        "passwordRequired": "Le mot de passe est requis.",
         "passwordMin": "Utilisez au moins 8 caractères",
-        "passwordMatch": "Les mots de passe ne correspondent pas"
+        "passwordMatch": "Les mots de passe ne correspondent pas",
+        "confirmationRequired": "Confirmez votre mot de passe."
       },
       "form": {
         "title": "Choisissez un nouveau mot de passe",
         "description": "Utilisez un mot de passe fort et unique.",
-        "submit": "Réinitialiser le mot de passe"
+        "pageDescription": "Entrez le jeton de réinitialisation et un nouveau mot de passe.",
+        "submit": "Réinitialiser le mot de passe",
+        "returnApplication": "Retourner à votre application",
+        "continueSignIn": "Continuer vers la connexion"
       },
       "complete": {
         "title": "Mot de passe mis à jour",

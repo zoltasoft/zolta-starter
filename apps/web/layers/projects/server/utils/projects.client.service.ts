@@ -1,6 +1,6 @@
 import type { H3Event } from 'h3'
 import type { ZoltaApiEnvelope, ZoltaApiFetchClient } from '@zoltasoft/api-client'
-import type { Project, ProjectTask, TaskFilters } from '../../shared/types/projects'
+import type { DeletedTaskResponse, Project, ProjectTask, TaskFilters } from '../../shared/types/projects'
 import { createZoltaApiClient } from '#server/utils/create-zolta-api-client'
 
 type UpstreamBody = Record<string, unknown>
@@ -29,4 +29,8 @@ export function createTask(client: ZoltaApiFetchClient, projectId: string, body:
 
 export function updateTask(client: ZoltaApiFetchClient, taskId: string, body: UpstreamBody) {
   return client<ZoltaApiEnvelope<{ task: ProjectTask }>>(`/api/tasks/${taskId}`, { method: 'PATCH', body })
+}
+
+export function deleteTask(client: ZoltaApiFetchClient, taskId: string) {
+  return client<ZoltaApiEnvelope<DeletedTaskResponse>>(`/api/tasks/${taskId}`, { method: 'DELETE' })
 }

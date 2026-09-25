@@ -3,7 +3,7 @@ definePageMeta({ layout: 'landing' })
 
 const copy = useSaasTemplatePresentation()
 const localePath = useLocalePath()
-const session = useStarterIdentitySession()
+const session = useSaasIdentitySession()
 const signupTo = computed(() => session.authorize(localePath('/dashboard'), 'register'))
 
 useSeoMeta({

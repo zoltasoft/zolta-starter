@@ -82,6 +82,8 @@
     "tasks": "tâches",
     "taskPlaceholder": "Que faut-il faire ?",
     "addTask": "Ajouter la tâche",
+    "deleteTask": "Supprimer",
+    "deleteTaskConfirm": "Supprimer la tâche « {title} » ?",
     "nav": {
       "overview": "Tâches",
       "tasks": "Tâches",

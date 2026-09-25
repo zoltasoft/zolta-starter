@@ -7,7 +7,8 @@
 		"@nuxt/image": "^2.1.0",
 		"@nuxt/ui": "^4.11.0",
 		"motion-v": "^2.4.0",
-		"nuxt-og-image": "^6.7.8"
+		"nuxt-og-image": "^6.7.8",
+		"tailwindcss": "^4.3.3"
 	},
 	"packageManager": "pnpm@10.30.3"
 }

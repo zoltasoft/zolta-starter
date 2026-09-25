@@ -10,12 +10,13 @@ definePageMeta({
 
 const route = useRoute()
 const toast = useToast()
+const { t } = useI18n()
 const { forgotPassword } = useIdentityAuth()
 const mutateIdentity = useIdentityMutation()
 const hostedApplication = computed(() => typeof route.query.application === 'string' ? route.query.application : '')
-const schema = z.object({ email: z.email('Enter a valid email address.') })
+const schema = z.object({ email: z.email(t('auth.forgotPassword.validation.invalidEmail')) })
 type ForgotPasswordSchema = z.output<typeof schema>
-const fields = [{ name: 'email', type: 'email' as const, label: 'Email', placeholder: 'you@example.com', required: true, autocomplete: 'email' }]
+const fields = [{ name: 'email', type: 'email' as const, label: t('auth.forgotPassword.fields.email.label'), placeholder: t('auth.forgotPassword.fields.email.placeholder'), required: true, autocomplete: 'email' }]
 const pending = ref(false)
 const successMessage = ref('')
 
@@ -32,13 +33,13 @@ async function submit({ data }: FormSubmitEvent<ForgotPasswordSchema>) {
     } else {
       await forgotPassword(data.email)
     }
-    successMessage.value = 'If that account exists, password reset instructions have been sent.'
+    successMessage.value = t('auth.forgotPassword.sent.description', { email: data.email })
   } catch (error) {
     toast.add({
-      title: 'Unable to request a password reset',
+      title: t('auth.forgotPassword.toast.errorTitle'),
       description: identityAuthErrorMessage(
         error,
-        'We could not request a password reset.'
+        t('auth.forgotPassword.toast.errorDescription')
       ),
       color: 'error'
     })
@@ -54,16 +55,16 @@ async function submit({ data }: FormSubmitEvent<ForgotPasswordSchema>) {
     :fields="fields"
     :schema="schema"
     :validate-on="['input']"
-    title="Reset your password"
-    description="Enter your email address and we will send the reset instructions."
+    :title="t('auth.forgotPassword.form.title')"
+    :description="t('auth.forgotPassword.form.description')"
     icon="i-lucide-key-round"
-    :submit="{ label: 'Send reset instructions', loading: pending }"
+    :submit="{ label: t('auth.forgotPassword.form.submit'), loading: pending }"
     @submit="submit"
   >
     <template #header>
       <IdentityAuthFormHeader
-        title="Reset your password"
-        description="Enter your email address and we will send the reset instructions."
+        :title="t('auth.forgotPassword.form.title')"
+        :description="t('auth.forgotPassword.form.description')"
       />
     </template>
     <template #validation>
@@ -76,7 +77,7 @@ async function submit({ data }: FormSubmitEvent<ForgotPasswordSchema>) {
     </template>
     <template #footer>
       <NuxtLink :to="{ ...identityAuthPagePath('login', route.params.pageSet, hostedApplication ? { application: hostedApplication, state: route.query.state } : {}) }">
-        Return to sign in
+        {{ t('auth.forgotPassword.form.returnToLogin') }}
       </NuxtLink>
     </template>
   </UAuthForm>

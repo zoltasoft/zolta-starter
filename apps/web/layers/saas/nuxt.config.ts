@@ -21,6 +21,16 @@ export default defineNuxtConfig({
           callbackUrl: process.env.ZOLTA_STARTER_IDENTITY_CALLBACK_URL ?? 'http://localhost:3000/api/identity/starter/auth/callback',
           sessionCookie: 'starter-identity-session',
           defaultRedirect: '/dashboard'
+        },
+        saas: {
+          identityApiUrl: process.env.ZOLTA_SAAS_IDENTITY_API_URL ?? process.env.ZOLTA_STARTER_IDENTITY_API_URL ?? process.env.IDENTITY_API_URL ?? 'http://localhost:8100',
+          hostedAuthUrl: process.env.ZOLTA_SAAS_IDENTITY_AUTH_URL ?? process.env.ZOLTA_STARTER_IDENTITY_AUTH_URL ?? 'http://localhost:3100',
+          clientId: process.env.ZOLTA_SAAS_IDENTITY_CLIENT_ID ?? process.env.ZOLTA_STARTER_IDENTITY_CLIENT_ID ?? '',
+          clientSecret: process.env.ZOLTA_SAAS_IDENTITY_CLIENT_SECRET ?? process.env.ZOLTA_STARTER_IDENTITY_CLIENT_SECRET ?? '',
+          hostedApplication: process.env.ZOLTA_SAAS_IDENTITY_APPLICATION ?? 'zoltasoft-saas',
+          callbackUrl: process.env.ZOLTA_SAAS_IDENTITY_CALLBACK_URL ?? 'http://localhost:3000/api/identity/saas/auth/callback',
+          sessionCookie: 'zolta-saas-identity-session',
+          defaultRedirect: '/dashboard'
         }
       }
     }

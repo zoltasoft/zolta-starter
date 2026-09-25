@@ -15,7 +15,7 @@ const props = withDefaults(defineProps<{
 })
 
 const colorMode = useColorMode()
-const session = useIdentitySession()
+const session = useSaasIdentitySession()
 const route = useRoute()
 const localePath = useLocalePath()
 const switchLocalePath = useSwitchLocalePath()
