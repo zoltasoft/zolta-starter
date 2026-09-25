@@ -1,0 +1,50 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+root="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
+cd "$root"
+
+web() {
+  cd "$root/apps/web"
+  CI=true pnpm install --frozen-lockfile
+  pnpm lint
+  pnpm test
+  pnpm build
+  pnpm audit --prod
+}
+
+identity_console() {
+  cd "$root/apps/identity-console"
+  NUXT_SESSION_PASSWORD="${NUXT_SESSION_PASSWORD:-ci-only-session-password-with-at-least-32-characters}" \
+    CI=true pnpm install --frozen-lockfile
+  NUXT_SESSION_PASSWORD="${NUXT_SESSION_PASSWORD:-ci-only-session-password-with-at-least-32-characters}" \
+    pnpm lint
+  NUXT_SESSION_PASSWORD="${NUXT_SESSION_PASSWORD:-ci-only-session-password-with-at-least-32-characters}" \
+    pnpm build
+  pnpm audit --prod
+}
+
+php_app() {
+  local app="$1"
+  cd "$root/$app"
+  composer validate --strict
+  composer install --prefer-dist --no-interaction --no-progress
+  composer test
+  composer audit
+}
+
+fast() {
+  cd "$root"
+  git diff --check
+  ./scripts/check-tracked-secrets.sh
+  web
+  identity_console
+  php_app apps/api
+  php_app apps/identity-server
+}
+
+case "${1:-pre-push}" in
+  fast|pre-push) fast ;;
+  full) fast ;;
+  *) echo "Usage: $0 {fast|pre-push|full}" >&2; exit 64 ;;
+esac
