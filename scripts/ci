@@ -27,6 +27,12 @@ identity_console() {
 php_app() {
   local app="$1"
   cd "$root/$app"
+  for extension in pdo_sqlite sqlite3 gd; do
+    php -m | grep -Fxq "$extension" || {
+      echo "PHP extension is required by the GitHub test job: $extension" >&2
+      return 78
+    }
+  done
   composer validate --strict
   composer install --prefer-dist --no-interaction --no-progress
   composer test
