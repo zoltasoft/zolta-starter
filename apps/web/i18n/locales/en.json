@@ -82,6 +82,8 @@
     "tasks": "tasks",
     "taskPlaceholder": "What needs to be done?",
     "addTask": "Add task",
+    "deleteTask": "Delete",
+    "deleteTaskConfirm": "Delete task \"{title}\"?",
     "nav": {
       "overview": "Tasks",
       "tasks": "Tasks",

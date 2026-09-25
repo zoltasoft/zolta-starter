@@ -2,7 +2,7 @@
 definePageMeta({ layout: 'dashboard', middleware: ['dashboard-auth'] })
 
 const { t } = useI18n()
-const session = useIdentitySession()
+const session = useSaasIdentitySession()
 const localePath = useLocalePath()
 
 const name = computed(() => {

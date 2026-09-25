@@ -4,7 +4,7 @@ definePageMeta({
 })
 const { locale } = useI18n()
 const localePath = useLocalePath()
-const identity = useStarterIdentitySession()
+const identity = useSaasIdentitySession()
 const { data: page } = await useAsyncData(
   `index-${locale.value}`,
   () => queryCollection('index').where('path', '=', `/${locale.value}`).first(),

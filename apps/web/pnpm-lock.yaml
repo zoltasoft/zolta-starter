@@ -145,6 +145,9 @@ importers:
       nuxt-og-image:
         specifier: ^6.7.8
         version: 6.7.8(d01fff0a534aa3816d49a68d54bae8d9)
+      tailwindcss:
+        specifier: ^4.3.3
+        version: 4.3.3
 
 packages:
 

@@ -9,6 +9,17 @@ const starterIdentityApplication = {
   defaultRedirect: '/dashboard'
 }
 
+const saasIdentityApplication = {
+  identityApiUrl: process.env.ZOLTA_SAAS_IDENTITY_API_URL ?? process.env.ZOLTA_STARTER_IDENTITY_API_URL ?? 'http://localhost:8100',
+  hostedAuthUrl: process.env.ZOLTA_SAAS_IDENTITY_AUTH_URL ?? process.env.ZOLTA_STARTER_IDENTITY_AUTH_URL ?? 'http://localhost:3100',
+  clientId: process.env.ZOLTA_SAAS_IDENTITY_CLIENT_ID ?? process.env.ZOLTA_STARTER_IDENTITY_CLIENT_ID ?? '',
+  clientSecret: process.env.ZOLTA_SAAS_IDENTITY_CLIENT_SECRET ?? process.env.ZOLTA_STARTER_IDENTITY_CLIENT_SECRET ?? '',
+  hostedApplication: process.env.ZOLTA_SAAS_IDENTITY_APPLICATION ?? 'zoltasoft-saas',
+  callbackUrl: process.env.ZOLTA_SAAS_IDENTITY_CALLBACK_URL ?? 'http://localhost:3000/api/identity/saas/auth/callback',
+  sessionCookie: 'zolta-saas-identity-session',
+  defaultRedirect: '/dashboard'
+}
+
 const projectsIdentityApplication = {
   identityApiUrl: process.env.ZOLTA_PROJECTS_IDENTITY_API_URL ?? 'http://localhost:8201',
   hostedAuthUrl: process.env.ZOLTA_PROJECTS_IDENTITY_AUTH_URL ?? 'http://localhost:3201',
@@ -63,6 +74,8 @@ export default defineNuxtConfig({
         starter: starterIdentityApplication,
         'zoltasoft-starter': starterIdentityApplication,
         'starter-demo': starterIdentityApplication,
+        saas: saasIdentityApplication,
+        'zoltasoft-saas': saasIdentityApplication,
         projects: projectsIdentityApplication,
         'tasks-demo': projectsIdentityApplication
       }

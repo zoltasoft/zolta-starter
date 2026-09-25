@@ -22,6 +22,10 @@ final class EloquentTaskRepository implements TaskRepository, TaskReader
         $record = TaskRecord::query()->whereKey($id->toString())->where('owner_id', $ownerId->toString())->first();
         return $record === null ? null : TaskMapper::toDomain($record);
     }
+    public function deleteOwned(TaskId $id, UserId $ownerId): bool
+    {
+        return TaskRecord::query()->whereKey($id->toString())->where('owner_id', $ownerId->toString())->delete() > 0;
+    }
     public function save(Task $task): void
     {
         $record = TaskRecord::query()->firstOrNew(['id' => $task->id()->toString()]);

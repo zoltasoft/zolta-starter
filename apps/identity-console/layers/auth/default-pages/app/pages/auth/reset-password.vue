@@ -10,24 +10,25 @@ definePageMeta({
 
 const route = useRoute()
 const toast = useToast()
+const { t } = useI18n()
 const { resetPassword } = useIdentityAuth()
 const mutateIdentity = useIdentityMutation()
 const hostedClientId = computed(() => typeof route.query.client_id === 'string' ? route.query.client_id : '')
 const schema = z.object({
-  email: z.email('Enter a valid email address.'),
-  token: z.string().min(64, 'Enter the reset token.'),
-  password: z.string().min(12, 'Use at least 12 characters.'),
-  passwordConfirmation: z.string().min(12, 'Confirm your password.')
+  email: z.email(t('auth.forgotPassword.validation.invalidEmail')),
+  token: z.string(t('auth.resetPassword.validation.tokenRequired')).min(64, t('auth.resetPassword.validation.tokenRequired')),
+  password: z.string(t('auth.resetPassword.validation.passwordRequired')).min(12, t('auth.resetPassword.validation.passwordMin')),
+  passwordConfirmation: z.string(t('auth.resetPassword.validation.confirmationRequired')).min(12, t('auth.resetPassword.validation.passwordMin'))
 }).refine(data => data.password === data.passwordConfirmation, {
-  message: 'The password confirmation does not match.',
+  message: t('auth.resetPassword.validation.passwordMatch'),
   path: ['passwordConfirmation']
 })
 type ResetPasswordSchema = z.output<typeof schema>
 const fields = [
-  { name: 'email', type: 'email' as const, label: 'Email', placeholder: 'you@example.com', required: true, autocomplete: 'email', defaultValue: typeof route.query.email === 'string' ? route.query.email : '' },
-  { name: 'token', type: 'text' as const, label: 'Reset token', placeholder: 'Paste the token from your email', required: true, autocomplete: 'one-time-code', defaultValue: typeof route.query.token === 'string' ? route.query.token : '' },
-  { name: 'password', type: 'password' as const, label: 'New password', placeholder: 'At least 12 characters', required: true, autocomplete: 'new-password' },
-  { name: 'passwordConfirmation', type: 'password' as const, label: 'Confirm password', placeholder: 'Repeat your password', required: true, autocomplete: 'new-password' }
+  { name: 'email', type: 'email' as const, label: t('auth.forgotPassword.fields.email.label'), placeholder: t('auth.forgotPassword.fields.email.placeholder'), required: true, autocomplete: 'email', defaultValue: typeof route.query.email === 'string' ? route.query.email : '' },
+  { name: 'token', type: 'text' as const, label: t('auth.resetPassword.fields.token.label'), placeholder: t('auth.resetPassword.fields.token.placeholder'), required: true, autocomplete: 'one-time-code', defaultValue: typeof route.query.token === 'string' ? route.query.token : '' },
+  { name: 'password', type: 'password' as const, label: t('auth.resetPassword.fields.password.label'), placeholder: t('auth.resetPassword.fields.password.placeholder'), required: true, autocomplete: 'new-password' },
+  { name: 'passwordConfirmation', type: 'password' as const, label: t('auth.resetPassword.fields.confirmation.label'), placeholder: t('auth.resetPassword.fields.confirmation.placeholder'), required: true, autocomplete: 'new-password' }
 ]
 const pending = ref(false)
 const successMessage = ref('')
@@ -47,13 +48,13 @@ async function submit({ data }: FormSubmitEvent<ResetPasswordSchema>) {
     } else {
       await resetPassword(data)
     }
-    successMessage.value = 'Your password has been reset. You can now sign in.'
+    successMessage.value = t('auth.resetPassword.complete.description')
   } catch (error) {
     toast.add({
-      title: 'Unable to reset your password',
+      title: t('auth.resetPassword.toast.errorTitle'),
       description: identityAuthErrorMessage(
         error,
-        'We could not reset your password.'
+        t('auth.resetPassword.toast.errorDescription')
       ),
       color: 'error'
     })
@@ -69,16 +70,16 @@ async function submit({ data }: FormSubmitEvent<ResetPasswordSchema>) {
     :fields="fields"
     :schema="schema"
     :validate-on="['input']"
-    title="Choose a new password"
-    description="Enter the reset token and a new password."
+    :title="t('auth.resetPassword.form.title')"
+    :description="t('auth.resetPassword.form.pageDescription')"
     icon="i-lucide-lock-keyhole"
-    :submit="{ label: 'Reset password', loading: pending }"
+    :submit="{ label: t('auth.resetPassword.form.submit'), loading: pending }"
     @submit="submit"
   >
     <template #header>
       <IdentityAuthFormHeader
-        title="Choose a new password"
-        description="Enter the reset token and a new password."
+        :title="t('auth.resetPassword.form.title')"
+        :description="t('auth.resetPassword.form.pageDescription')"
       />
     </template>
     <template #validation>
@@ -94,13 +95,13 @@ async function submit({ data }: FormSubmitEvent<ResetPasswordSchema>) {
         v-if="applicationUrl"
         :href="applicationUrl"
       >
-        Return to your application
+        {{ t('auth.resetPassword.form.returnApplication') }}
       </a>
       <NuxtLink
         v-else
         :to="identityAuthPagePath('login', route.params.pageSet)"
       >
-        Continue to sign in
+        {{ t('auth.resetPassword.form.continueSignIn') }}
       </NuxtLink>
     </template>
   </UAuthForm>

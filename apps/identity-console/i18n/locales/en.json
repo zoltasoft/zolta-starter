@@ -192,6 +192,7 @@
       },
       "validation": {
         "invalidEmail": "Invalid email",
+        "passwordRequired": "Password is required",
         "passwordMin": "Must be at least 8 characters"
       },
       "toast": {
@@ -207,10 +208,22 @@
       },
       "form": {
         "title": "Welcome back",
+        "description": "Sign in to continue.",
         "submit": "Login",
         "noAccount": "Don't have an account?",
+        "newHere": "New here?",
+        "existingAccount": "Use your existing account to continue.",
         "signUp": "Sign up",
+        "createAccount": "Create an account",
         "forgotPassword": "Forgot password?",
+        "google": "Continue with Google",
+        "demoContinue": "Continue as demo",
+        "demoPreparing": "Preparing demo…",
+        "demoCreate": "Create instant demo account",
+        "loadError": "We could not load this application's authentication settings.",
+        "loadRetry": "Try refreshing the page or return to the application and start again.",
+        "loadingSettings": "Loading authentication settings…",
+        "loadingAuthentication": "Loading authentication…",
         "footerPrefix": "By signing in, you agree to our",
         "terms": "Terms of Service",
         "and": "and",
@@ -249,7 +262,10 @@
       "validation": {
         "nameRequired": "Name is required",
         "invalidEmail": "Invalid email",
+        "passwordRequired": "Password is required",
         "passwordMin": "Must be at least 8 characters",
+        "passwordConfirmationRequired": "Confirm your password.",
+        "passwordConfirmationMismatch": "The password confirmation does not match.",
         "termsRequired": "You must accept the terms and privacy policy"
       },
       "toast": {
@@ -264,9 +280,21 @@
       },
       "form": {
         "title": "Create an account",
+        "description": "Create an account for this application.",
         "submit": "Create account",
+        "continue": "Continue",
+        "secureTitle": "Secure your account",
+        "secureDescription": "Choose a password to finish creating your account.",
+        "backToProfile": "Back to name and email",
         "haveAccount": "Already have an account?",
         "login": "Login",
+        "google": "Continue with Google",
+        "termsReviewTitle": "Review and accept",
+        "termsReviewDescription": "Confirm the legal terms before creating your account.",
+        "termsPrompt": "Please review the",
+        "termsLabel": "I have read and agree to the Terms of Service and Privacy Policy.",
+        "cancel": "Cancel",
+        "accept": "Accept",
         "footerPrefix": "By signing up, you agree to our",
         "terms": "Terms of Service",
         "and": "and",
@@ -290,7 +318,8 @@
       "form": {
         "title": "Forgot your password?",
         "description": "Enter your email and we will send reset instructions if an account exists.",
-        "submit": "Send reset link"
+        "submit": "Send reset link",
+        "returnToLogin": "Return to sign in"
       },
       "sent": {
         "title": "Check your email",
@@ -308,6 +337,10 @@
         "description": "Securely reset your InterviewLike password"
       },
       "fields": {
+        "token": {
+          "label": "Reset token",
+          "placeholder": "Paste the token from your email"
+        },
         "password": {
           "label": "New password",
           "placeholder": "Enter a new password"
@@ -318,13 +351,19 @@
         }
       },
       "validation": {
+        "tokenRequired": "Enter the reset token.",
+        "passwordRequired": "Password is required.",
         "passwordMin": "Use at least 8 characters",
-        "passwordMatch": "Passwords do not match"
+        "passwordMatch": "Passwords do not match",
+        "confirmationRequired": "Confirm your password."
       },
       "form": {
         "title": "Choose a new password",
         "description": "Use a strong password that you do not use elsewhere.",
-        "submit": "Reset password"
+        "pageDescription": "Enter the reset token and a new password.",
+        "submit": "Reset password",
+        "returnApplication": "Return to your application",
+        "continueSignIn": "Continue to sign in"
       },
       "complete": {
         "title": "Password updated",

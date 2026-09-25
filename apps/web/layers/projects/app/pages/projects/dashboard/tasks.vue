@@ -63,6 +63,13 @@ const update = async (task: ProjectTask, patch: Partial<Pick<ProjectTask, 'statu
   descriptionDrafts[task.id] = task.description || ''
 }
 
+const removeTask = async (task: ProjectTask) => {
+  if (import.meta.client && !window.confirm(t('projects.deleteTaskConfirm', { title: task.title }))) return
+  await api.deleteTask(task.id)
+  tasks.value = tasks.value.filter(item => item.id !== task.id)
+  Reflect.deleteProperty(descriptionDrafts, task.id)
+}
+
 const saveDescription = async (task: ProjectTask) => {
   const nextDescription = descriptionDrafts[task.id] || ''
   if (nextDescription === (task.description || '')) return
@@ -211,6 +218,15 @@ useSeoMeta({ title: () => project.value?.name || t('projects.nav.tasks') })
                     :items="priorityItems.slice(1)"
                     @update:model-value="update(task, { priority: $event })"
                   />
+                  <UButton
+                    type="button"
+                    color="error"
+                    variant="ghost"
+                    size="sm"
+                    @click="removeTask(task)"
+                  >
+                    {{ t('projects.deleteTask') }}
+                  </UButton>
                 </div>
               </div>
               <UTextarea

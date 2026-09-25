@@ -1,28 +1,4 @@
+/** @deprecated Use useSaasAuthenticationState for the SaaS layer. */
 export function useStarterAuthenticationState() {
-  const session = useStarterIdentitySession()
-  const localePath = useLocalePath()
-
-  const init = async () => {
-    if (session.ready.value) return
-
-    try {
-      await session.fetch()
-    } catch {
-      // Zoltasoft Starter may be opened before its Identity Console resource is configured.
-      // Keep the public shell renderable and treat that state as signed out.
-      session.error.value = null
-    }
-  }
-
-  const login = async (redirect?: string | string[] | null, intent: 'login' | 'register' = 'login') => {
-    const destination = resolveIdentityRedirect(redirect, localePath('/dashboard'))
-    await navigateTo(session.authorize(destination, intent), { external: true })
-  }
-
-  const logout = async () => {
-    await session.clear(localePath('/'))
-  }
-  void init()
-
-  return { session, login, logout }
+  return useSaasAuthenticationState()
 }

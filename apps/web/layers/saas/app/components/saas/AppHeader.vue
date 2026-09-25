@@ -4,7 +4,7 @@ import type { NavigationMenuItem } from '@nuxt/ui'
 const copy = useSaasTemplatePresentation()
 const localePath = useLocalePath()
 const route = useRoute()
-const { session, login } = useStarterAuthenticationState()
+const { session, login } = useSaasAuthenticationState()
 
 // <UButton
 //   v-if="!isAuthenticated"
@@ -19,8 +19,6 @@ const { session, login } = useStarterAuthenticationState()
 // />
 
 const dashboardPath = computed(() => localePath('/dashboard'))
-const loginUrl = computed(() => session.authorize(dashboardPath.value))
-const signupUrl = computed(() => session.authorize(dashboardPath.value, 'register'))
 const items = computed<NavigationMenuItem[]>(() => [
   {
     label: copy.value.navigation.product,
@@ -79,9 +77,9 @@ const items = computed<NavigationMenuItem[]>(() => [
         />
         <UButton
           :label="copy.navigation.start"
-          :href="signupUrl"
           trailing-icon="i-lucide-arrow-right"
           class="hidden sm:inline-flex"
+          @click="login(undefined, 'register')"
         />
       </template>
     </template>
@@ -104,15 +102,15 @@ const items = computed<NavigationMenuItem[]>(() => [
       >
         <UButton
           :label="copy.navigation.login"
-          :href="loginUrl"
           color="neutral"
           variant="outline"
           block
+          @click="login()"
         />
         <UButton
           :label="copy.navigation.start"
-          :href="signupUrl"
           block
+          @click="login(undefined, 'register')"
         />
       </div>
     </template>

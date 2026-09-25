@@ -1,7 +1,7 @@
 import { isIdentitySessionExpired } from '~~/shared/utils/identity-session'
 
 export default defineNuxtRouteMiddleware(async (to) => {
-  const session = useIdentitySession()
+  const session = useSaasIdentitySession()
 
   await session.fetch()
 
