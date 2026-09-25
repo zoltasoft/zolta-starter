@@ -11,5 +11,6 @@ use App\Services\TaskManagerService\Domain\ValueObjects\UserId;
 interface TaskRepository
 {
     public function findOwned(TaskId $id, UserId $ownerId): ?Task;
+    public function deleteOwned(TaskId $id, UserId $ownerId): bool;
     public function save(Task $task): void;
 }
